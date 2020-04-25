@@ -13,7 +13,7 @@
 
 	/////////////////////////////////////////////////////////////////////////////////////	
 	
-	var simulator = new Worker("./assets/js/simulate.js");
+	var simulator = new Worker("./assets/js/simulate.min.js");
 	simulator.onmessage = function(event){
 		
 		var sim_data = event.data;
