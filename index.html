@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Portfolio Analysis</title>
@@ -18,6 +19,18 @@
 		#menu {
 			padding: 10px;
 		}
+		.plot{
+			position: absolute;
+		}
+		#pareto-plot{
+			top:80px;
+		}
+		#parallel-plot{
+			top:80px; right: 20px;
+		}
+		#timeseries-plot{
+			margin: 720px 0 0 0;
+		}
 		</style>
 		<!-- <div id="asset-prices"></div> -->
 		<div id="main">
@@ -26,8 +39,8 @@
 				<div class="input-group mb-3">
 				
 					<div class="input-group-prepend">
-						<span class="input-group-text">Tickers</span>
-						<select multiple id="tickers" data-role="tagsinput" style="width:300px;" data-toggle="tooltip" title="Load price data once and use plots for analysing!"> </select>
+						<span class="input-group-text" style="font-size: 14px;">Tickers</span>
+						<select multiple id="tickers" data-role="tagsinput" style="width:240px;" data-toggle="tooltip" title="Load price data once and use plots for analysing!"> </select>
 					</div>
 
 					<button id="go" class="btn btn-primary">
@@ -38,14 +51,14 @@
 					&emsp;&emsp;
 
 					<div class="input-group-prepend">
-						<span class="input-group-text" style="font-size: 14px;">Total Amount</span>
+						<span class="input-group-text" style="font-size: 12px;">Amount</span>
 						<input id="total" class="form-control" type="number" value="0" style="width:100px;" data-toggle="tooltip" title="Leave as 0 to plot percentages or enter amount to plot number of shares based on current price."></input>
 					</div>
 					
 					&emsp;&emsp;
 
 					<div class="input-group-prepend">
-						<span class="input-group-text" style="font-size: 14px;">Free Interest</span>
+						<span class="input-group-text" style="font-size: 12px;">Free Interest</span>
 						<input id="free-rate" class="form-control" type="number" value="0" style="width:60px;"></input>
 						<span class="input-group-text">%</span>
 					</div>
@@ -66,15 +79,12 @@
 				</div>
 
 			</nav>
-			<div id="pareto-plot" class="plot" style="position: absolute; top:80;"></div>
-			<div id="parallel-plot" class="plot" style="position: absolute; top:80; right: 20;"></div>
-			<div id="timeseries-plot" class="plot" style="margin: 720px 0 0 0;"></div>
+			<div id="pareto-plot" class="plot"></div>
+			<div id="parallel-plot" class="plot"></div>
+			<div id="timeseries-plot" class="plot"></div>
 		</div>
 		
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
 
 		<!--<script>
 		var data_file = "./main_data_old.json";
@@ -90,6 +100,10 @@
 		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.0/math.min.js"></script>
 		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		
+		<script async defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script async defer src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		
 		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script> -->
 		<script src="./assets/js/tagsinput.js"></script>
 
