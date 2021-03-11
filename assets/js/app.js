@@ -1,1 +1,247 @@
-eval(function(p,a,c,k,e,d){e=function(c){return c};if(!''.replace(/^/,String)){while(c--){d[c]=k[c]||c}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('9 81(108,88){17 108.78(26=>26[88])}9 102(22){17 22.84(9(59,53,34){17 53<22[59]?34:59},0)}9 89(22){17 22.84(9(65,53,34){17 53>22[65]?34:65},0)}4 62=143 144("./16/92/11.145.92");62.138=9(94){4 54=94.8;96(16,54,19);$("#11").148(\'75\');$("#30-24").10();$("#30-113").15()};9 96(12,54,19){[49,29,27,35,69]=54;4 46=12.56;4 70=(19!=0);9 45(106){17 73.71(23.43(23.151(106,100),1))}9 87(93){17 73.71(93)}4 51=[];98(70==38){51=35.78(45)}95{51=69.78(87)}4 91={44:"137",26:29,47:49,48:\'83\',18:\'55\',82:51,72:{21:\'74(85, 85, 79, 1)\',76:23.43(23.132(27,5))}};4 32=102(29);4 31=89(27);4 105={44:"129 103",26:[29[32]],47:[49[32]],48:\'83\',18:\'55\',82:45(35[32])+"</86>"+"77: "+23.43(27[32],3),72:{21:\'74(0,0,0,0)\',76:20,63:{21:\'97(130, 40, 79)\',36:2}},};4 104={44:"128 77",26:[29[31]],47:[49[31]],48:\'83\',18:\'55\',82:45(35[31])+"</86>"+"77: "+23.43(27[31],3),72:{21:\'74(0,0,0,0)\',76:20,63:{21:\'97(13, 40, 79)\',36:2}},};4 8=[91,105,104];4 25={61:38,36:182,64:42,114:{107:"101 103/178"},189:{107:"101 188"}};66.67(\'99-14\',8,25);$(\'#99-14\').15();4 41=[];98(70==38){41=35}95{41=69}4 58=[];50(4 6=0;6<46;6++){4 90={159:81(41,6),161:12[6]};58.57(90)}4 8=[{18:\'162\',163:[80,80,80,80],63:{165:158,21:27,168:[[0,\'169\'],[0.5,\'170\'],[1,\'171\']],172:1.7,173:0.5,},174:58}];4 25={61:38,36:42,64:42};66.67(\'109-14\',8,25);$(\'#109-14\').15()}9 117(28,8,12){4 46=12.56;4 68=[];50(4 6=0;6<46;6++){4 118={18:"55",48:"166",26:28,47:8[6],44:12[6]};68.57(118)}4 25={61:38,36:164,64:42,114:{18:\'160\'}};66.67(\'111-14\',68,25);$(\'#111-14\').15()}4 28=[];4 37=[];4 16=[];4 19=0;$(176).167(9(){$(\'[8-177="112"]\').112();$(".14").10();$("#11").10();$("#30-24").10();$("#39-24").10();4 33="181,187,186,183";33=33.184(",");50(4 6=0;6<33.56;6++){$(\'#119\').120(\'180\',33[6])};$("#39").52(9(){$("#11").10();$("#39-24").15();28=[];37=[];16=[];4 115={12:$(\'#119\').120(\'179\')};$.156({157:"147://155.135.134.133/127/8",18:"123",124:\'116\',125:\'126/116\',8:73.71(115),131:9(8){16=8["122"];28=8["34"];50(4 6=0;6<8["122"].56;6++){37.57(81(8["8"],6))}117(28,37,16);$("#11").15();$("#39-24").10()}})});$("#11").52(9(){$("#11").136(\'75\',\'75\');$("#30-24").15();$("#30-113").10();19=154($("#153").110());4 60=$("#60").152(":150");4 121=$("#149-146").110()/100; 62.142([16,37,121,19,60])});$("#39").52().141(140).139(9(){$("#11").52();$(175).185()})});',10,190,'||||var||i||data|function|hide|simulate|stocks||plot|show|assets|return|type|total_amount||color|a|math|loading|layout|x|sharpes|timestamps|risks|sim|max_sharpe_index|min_risk_index|demo_tickers|index|portfolios|width|main_data|false|go||parallel_data|640|round|name|weight_label|N|y|mode|returns|for|pareto_labels|click|next|sim_data|scatter|length|push|dims|lowest|prune|autosize|simulator|line|height|highest|Plotly|newPlot|traces|stock_counts|allocate|stringify|marker|JSON|rgba|disabled|size|Sharpe|map|255||arrayColumn|text|markers|reduce|190|br|count_label|n|argmax|dim|mc_points|js|count_arr|event|else|update_simplots|rgb|if|pareto||Expected|argmin|Risk|max_sharpe|min_risk|weight_arr|title|arr|parallel|val|timeseries|tooltip|available|xaxis|params|json|data_plot|trace|tickers|tagsinput|free_rate|columns|post|dataType|contentType|application|api|Max|Min||success|dotMultiply|co|repl|amshenoy1|attr|Portfolios|onmessage|queue|10000|delay|postMessage|new|Worker|min|rate|https|removeAttr|free|checked|multiply|is|total|parseInt|mpt|ajax|url|true|values|date|label|parcoords|pad|1280|showscale|lines|ready|colorscale|red|green|blue|cmax|cmin|dimensions|this|document|toggle|Volatility|items|add|amzn|720|gld|split|dequeue|aapl|googl|Return|yaxis'.split('|'),0,{}))
+
+function arrayColumn(arr, n) {
+  return arr.map(x=> x[n]);
+}
+		
+function argmin(a) {
+	return a.reduce(function(lowest, next, index) {return next < a[lowest] ? index : lowest; }, 0);
+}
+function argmax(a) {
+	return a.reduce(function(highest, next, index) {return next > a[highest] ? index : highest; }, 0);
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////	
+
+var simulator = new Worker("./assets/js/simulate.min.js");
+simulator.onmessage = function(event){
+	
+	var sim_data = event.data;
+	update_simplots(assets, sim_data, total_amount);
+	
+	$("#simulate").removeAttr('disabled');
+	$("#sim-loading").hide();
+	$("#sim-available").show();
+	
+};
+//////////////////////////////////////////////////////////////////////
+
+function update_simplots(stocks, sim_data, total_amount){
+	
+	[returns, risks, sharpes, portfolios, stock_counts] = sim_data;
+	
+	var N = stocks.length;
+	var allocate = (total_amount != 0);
+	//////////////////////////////////////////////////////////////////////
+	//////////////////////////Pareto Plot//////////////////////////
+	//////////////////////////////////////////////////////////////////////
+	function weight_label(weight_arr){
+		return JSON.stringify(math.round(math.multiply(weight_arr, 100), 1));
+	}
+	
+	function count_label(count_arr){
+		return JSON.stringify(count_arr);
+	}
+	
+	//TBD add sharpe ratios to this
+	var pareto_labels = [];
+	if (allocate == false){
+		pareto_labels = portfolios.map(weight_label);
+	}else{
+		pareto_labels = stock_counts.map(count_label);
+	}
+	
+	var mc_points = {
+	  name: "Portfolios",
+	  x: risks,
+	  y: returns,
+	  mode: 'markers',
+	  type: 'scatter',
+	  text: pareto_labels, 
+	  marker: {
+		color: 'rgba(190, 190, 255, 1)',
+		size: math.round(math.dotMultiply(sharpes, 5))
+	  }
+	};
+	
+	var min_risk_index = argmin(risks);
+	var max_sharpe_index = argmax(sharpes);
+	
+	var min_risk = {
+	  name: "Min Risk",
+	  x: [risks[min_risk_index]],
+	  y: [returns[min_risk_index]],
+	  mode: 'markers',
+	  type: 'scatter',
+	  text: weight_label(portfolios[min_risk_index])+"</br>"+"Sharpe: "+math.round(sharpes[min_risk_index], 3),
+	  marker: {
+		color: 'rgba(0,0,0,0)',
+		size: 20,
+		line: {
+		  color: 'rgb(130, 40, 255)',
+		  width: 2
+		}
+	  },
+	}; 
+	
+	
+	var max_sharpe = {
+	  name: "Max Sharpe",
+	  x: [risks[max_sharpe_index]],
+	  y: [returns[max_sharpe_index]],
+	  mode: 'markers',
+	  type: 'scatter',
+	  text: weight_label(portfolios[max_sharpe_index])+"</br>"+"Sharpe: "+math.round(sharpes[max_sharpe_index], 3),
+	  marker: {
+		color: 'rgba(0,0,0,0)',
+		size: 20,
+		line: {
+		  color: 'rgb(13, 40, 255)',
+		  width: 2
+		}
+	  },
+	}; 
+
+	
+	var data = [mc_points, min_risk, max_sharpe];
+	var layout = {autosize: false, width: 720, height: 640, xaxis:{title: "Expected Risk/Volatility"}, yaxis:{title: "Expected Return"}};
+	Plotly.newPlot('pareto-plot', data, layout);
+	$('#pareto-plot').show();
+
+	///////////////////////////////////////////////////////////////
+	//////////////////Parallel Plot//////////////////////////
+	///////////////////////////////////////////////////////////////
+	var parallel_data = [];
+	if (allocate == false){
+		parallel_data = portfolios;
+	}else{
+		parallel_data = stock_counts;
+	}
+	
+	var dims = [];
+	for (var i=0; i<N; i++){
+		var dim = {
+			values: arrayColumn(parallel_data, i),
+			label: stocks[i]
+		};
+		dims.push(dim);
+	}
+	
+	var data = [{
+	  type: 'parcoords',
+	  pad: [80,80,80,80],
+	  line: {
+		showscale: true,
+		color: sharpes,
+		colorscale: [[0, 'red'], [0.5, 'green'], [1, 'blue']],
+		cmax: 1.7,
+		cmin: 0.5,
+		
+	  },
+	  dimensions: dims
+	}];
+	
+	
+	var layout = {autosize: false, width: 640, height: 640};
+	Plotly.newPlot('parallel-plot', data, layout);
+	$('#parallel-plot').show();
+}
+
+function data_plot(timestamps, data, stocks){
+	//////////////////////////////////////////////////////////////////////
+	/////////////////////////Timeseries Plot//////////////////////////////
+	//////////////////////////////////////////////////////////////////////
+	var N = stocks.length;
+	
+	var traces = [];
+	for (var i=0; i < N; i++){
+		var trace = {
+			type: "scatter",
+			mode: "lines",
+			x: timestamps,
+			y: data[i],
+			name: stocks[i]
+		};
+		traces.push(trace);
+	}
+	
+	var layout = {autosize: false, width: 1280, height: 640, xaxis: {type: 'date'}};
+	Plotly.newPlot('timeseries-plot', traces, layout);
+	$('#timeseries-plot').show();
+}
+/////////////////////////////////////////////////////////////////////////////////////	
+var timestamps = [];
+var main_data = [];
+var assets = [];
+var total_amount = 0;
+
+$( document ).ready(function() {
+	
+	$('[data-toggle="tooltip"]').tooltip();
+	$(".plot").hide();
+	$("#simulate").hide();
+	$("#sim-loading").hide();
+	$("#go-loading").hide();
+	
+	var demo_tickers = "amzn,googl,aapl,gld";
+	demo_tickers = demo_tickers.split(",");
+	for (var i=0; i<demo_tickers.length; i++){
+		$('#tickers').tagsinput('add', demo_tickers[i]);
+	};
+	
+	$("#go").click(function(){
+		$("#simulate").hide();
+		$("#go-loading").show();
+		
+		//reset clear old data
+		timestamps = [];
+		main_data = [];
+		assets = [];
+		
+		//console.log($('#tickers').val());
+		//console.log($('#tickers').tagsinput('items'));
+		
+		var params = {stocks: $('#tickers').tagsinput('items')};
+		$.ajax({
+			url: "https://mpt.amshenoy1.repl.co/api/data",
+			type: "post",
+			dataType: 'json',
+			contentType: 'application/json',
+			data: JSON.stringify(params),
+			success: function (data) {
+
+				assets = data["columns"];
+				timestamps = data["index"];
+				// Convert row arrays to column arrays
+				for (var i=0; i < data["columns"].length; i++){
+					main_data.push(arrayColumn(data["data"], i));
+				}
+				
+				data_plot(timestamps, main_data, assets);
+				
+				$("#simulate").show();
+				$("#go-loading").hide();
+			}
+		});
+		
+	});
+	
+	$("#simulate").click(function(){
+		$("#simulate").attr('disabled', 'disabled');
+		$("#sim-loading").show();
+		$("#sim-available").hide();
+		
+		total_amount = parseInt($("#total").val());
+		var prune = $("#prune").is(":checked");
+		var free_rate = $("#free-rate").val() / 100; // free interest growth
+
+		//var sim_data = simulate(assets, main_data, free_rate, total_amount, prune);		
+		simulator.postMessage([assets, main_data, free_rate, total_amount, prune]);		
+	});
+	
+	$("#go").click().delay(10000).queue(function(){
+		$("#simulate").click();
+		$(this).dequeue();
+	});
+
+});
