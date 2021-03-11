@@ -177,7 +177,6 @@ var total_amount = 0;
 
 $( document ).ready(function() {
 	
-	$('[data-toggle="tooltip"]').tooltip();
 	$(".plot").hide();
 	$("#simulate").hide();
 	$("#sim-loading").hide();
@@ -243,5 +242,7 @@ $( document ).ready(function() {
 		$("#simulate").click();
 		$(this).dequeue();
 	});
+	
+	$('[data-toggle="tooltip"]').tooltip();
 
 });
