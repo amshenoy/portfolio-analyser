@@ -202,18 +202,20 @@ $( document ).ready(function() {
 		
 		var params = {stocks: $('#tickers').tagsinput('items')};
 		$.ajax({
-			url: "https://mpt.amshenoy1.repl.co/api/data",
+			url: "https://portfolio-analyser.vercel.app/api/data",
 			type: "post",
 			dataType: 'json',
 			contentType: 'application/json',
 			data: JSON.stringify(params),
 			success: function (data) {
-
-				assets = data["columns"];
-				timestamps = data["index"];
+				
+				//console.log(data)
+				assets = data["assets"];
+				timestamps = data["timestamps"];
 				// Convert row arrays to column arrays
-				for (var i=0; i < data["columns"].length; i++){
-					main_data.push(arrayColumn(data["data"], i));
+				for (var i=0; i < data["assets"].length; i++){
+					// main_data.push(arrayColumn(data["prices"], i));
+					main_data.push(data["prices"][i]);
 				}
 				
 				data_plot(timestamps, main_data, assets);
@@ -221,6 +223,8 @@ $( document ).ready(function() {
 				$("#simulate").show();
 				$("#go-loading").hide();
 			}
+		}).done(function(){
+			$("#simulate").click();
 		});
 		
 	});
@@ -238,11 +242,13 @@ $( document ).ready(function() {
 		simulator.postMessage([assets, main_data, free_rate, total_amount, prune]);		
 	});
 	
+	/*
 	$("#go").click().delay(10000).queue(function(){
 		$("#simulate").click();
 		$(this).dequeue();
 	});
-	
+	*/
+	$("#go").click();
 	$('[data-toggle="tooltip"]').tooltip();
 
 });
