@@ -158,7 +158,7 @@ function data_plot(timestamps, data, stocks){
 		var trace = {
 			type: "scatter",
 			mode: "lines",
-			x: timestamps,
+			x: timestamps.map(t => t*1000),
 			y: data[i],
 			name: stocks[i]
 		};
