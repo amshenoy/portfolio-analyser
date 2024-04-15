@@ -1,92 +1,115 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Portfolio Analysis</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="description" content="Portfolio Analyser">
-		<meta name="keywords" content="stocks, equities, portfolio, analysis, manager, analyser, engineering">
-		<meta name="author" content="Abhishek Shenoy">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-		<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css"/> -->
-		<link rel="stylesheet" type="text/css" href="./assets/css/tagsinput.css"/>
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput-typeahead.css"/>
-		
-	</head>
-	<body>
-		<style>
+
+<head>
+	<title>Portfolio Analysis</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="description" content="Portfolio Analyser">
+	<meta name="keywords" content="stocks, equities, portfolio, analysis, manager, analyser, engineering">
+	<meta name="author" content="Abhishek Shenoy">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css"/> -->
+	<link rel="stylesheet" type="text/css" href="./assets/css/tagsinput.css" />
+	<link rel="stylesheet" type="text/css"
+		href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput-typeahead.css" />
+
+</head>
+
+<body>
+	<style>
 		#menu {
 			padding: 10px;
 		}
-		.plot{
+
+		.plot {
 			position: absolute;
 		}
-		#pareto-plot{
-			top:80px;
+
+		#pareto-plot {
+			top: 80px;
 		}
-		#parallel-plot{
-			top:80px; right: 20px;
+
+		#parallel-plot {
+			top: 80px;
+			right: 20px;
 		}
-		#timeseries-plot{
+
+		#timeseries-plot {
 			margin: 720px 0 0 0;
 		}
-		</style>
-		<!-- <div id="asset-prices"></div> -->
-		<div id="main">
-			<nav id="menu">
+	</style>
+	<!-- <div id="asset-prices"></div> -->
+	<div id="main">
+		<nav id="menu">
 
-				<div class="input-group mb-3">
-				
-					<div class="input-group-prepend">
-						<span class="input-group-text" style="font-size: 14px;">Tickers</span>
-						<select multiple id="tickers" data-role="tagsinput" style="width:240px;" data-toggle="tooltip" title="Load price data once and use plots for analysing!"> </select>
-					</div>
+			<div class="input-group mb-3">
 
-					<button id="go" class="btn btn-primary">
-					Load Data
-					<span id="go-loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-					</button>
-
-					&emsp;&emsp;
-
-					<div class="input-group-prepend">
-						<span class="input-group-text" style="font-size: 12px;">Amount</span>
-						<input id="total" class="form-control" type="number" value="0" style="width:100px;" data-toggle="tooltip" title="Leave as 0 to plot percentages or enter amount to plot number of shares based on current price."></input>
-					</div>
-					
-					&emsp;&emsp;
-
-					<div class="input-group-prepend">
-						<span class="input-group-text" style="font-size: 12px;">Free Interest</span>
-						<input id="free-rate" class="form-control" type="number" value="0" style="width:60px;"></input>
-						<span class="input-group-text">%</span>
-					</div>
-					
-					&emsp;&emsp;
-					
-					  <div class="input-group-prepend">
-						<div class="input-group-text" style="font-size: 14px;"><input type="checkbox" id="prune" aria-label="Prune" checked>&nbsp; Prune</div>
-					  </div>
-					  
-					&emsp;&emsp;&emsp;
-					
-					<button id="simulate" class="btn btn-primary">
-						<span id="sim-available">Simulate</span>
-						<span id="sim-loading"class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-					</button>
-				
+				<div class="input-group-prepend">
+					<span class="input-group-text" style="font-size: 14px;">Tickers</span>
+					<select multiple id="tickers" data-role="tagsinput" style="width:240px;" data-toggle="tooltip"
+						title="Load price data once and use plots for analysing!"> </select>
 				</div>
 
-			</nav>
-			<div id="pareto-plot" class="plot"></div>
-			<div id="parallel-plot" class="plot"></div>
-			<div id="timeseries-plot" class="plot"></div>
-		</div>
-		
-		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		<!--<script>
+				<button id="go" class="btn btn-primary">
+					Load Data
+					<span id="go-loading" class="spinner-border spinner-border-sm" role="status"
+						aria-hidden="true"></span>
+				</button>
+
+				&emsp;&emsp;
+
+				<div class="input-group-prepend">
+					<span class="input-group-text" style="font-size: 12px;">Amount</span>
+					<input id="total" class="form-control" type="number" value="0" style="width:100px;"
+						data-toggle="tooltip"
+						title="Leave as 0 to plot percentages or enter amount to plot number of shares based on current price."></input>
+				</div>
+
+				&emsp;&emsp;
+
+				<div class="input-group-prepend">
+					<span class="input-group-text" style="font-size: 12px;">Free Interest</span>
+					<input id="free-rate" class="form-control" type="number" value="0" step=".01"
+						style="width:80px;"></input>
+					<span class="input-group-text">%</span>
+				</div>
+
+				&emsp;&emsp;
+
+				<div class="input-group-prepend">
+					<div class="input-group-text" style="font-size: 14px;"><input type="checkbox" id="prune"
+							aria-label="Prune" checked>&nbsp; Prune</div>
+				</div>
+
+				&emsp;&emsp;
+
+				<div class="input-group-prepend">
+					<div class="input-group-text" style="font-size: 14px;"><input type="checkbox" id="longshort"
+							aria-label="Long Short" checked>&nbsp; Long Short</div>
+				</div>
+
+				&emsp;&emsp;&emsp;
+
+				<button id="simulate" class="btn btn-primary">
+					<span id="sim-available">Simulate</span>
+					<span id="sim-loading" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+				</button>
+
+			</div>
+
+		</nav>
+		<div id="pareto-plot" class="plot"></div>
+		<div id="parallel-plot" class="plot"></div>
+		<div id="timeseries-plot" class="plot"></div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<!--<script>
 		var data_file = "./main_data_old.json";
 		$.get( data_file, function( data ){
 			assets = data["columns"];
@@ -97,17 +120,19 @@
 			}
 		});
 		</script>-->
-		
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.0/math.min.js"></script>
-		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-		
-		<script async defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-		<script async defer src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
-		
-		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script> -->
-		<script src="./assets/js/tagsinput.js"></script>
 
-		<script src="./assets/js/app.js"></script>
-		
-	</body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.0/math.min.js"></script>
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+	<script async defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script async defer
+		src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script> -->
+	<script src="./assets/js/tagsinput.js"></script>
+
+	<script src="./assets/js/app.js"></script>
+
+</body>
+
 </html>
